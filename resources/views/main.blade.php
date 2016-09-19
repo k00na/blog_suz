@@ -9,7 +9,7 @@
 	<div class="container">
 		@yield('content')
 		@include('partials._footer')
-		<button class="btn btn-primary">Primary Button</button>
+		
 	</div>
 
 	@include('partials._scripts')
