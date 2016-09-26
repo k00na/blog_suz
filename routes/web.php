@@ -16,5 +16,14 @@ Route::get('/', ['as'=>'home','uses'=>'PostsController@latest']);
 
 Route::resource('posts', 'PostsController');
 
-Route::get('about', ['as'=>'about','uses'=>'PagesController@about']);
+Route::get('aboutnb', ['as'=>'about','uses'=>'PagesController@about']);
 Route::get('contact', ['as'=>'contact', 'uses'=>'PagesController@contact']);
+
+Route::get('/suz_log', ['as'=>'login', 'uses'=>'CustomAuthController@index']);
+Route::post('/suz_log', ['as'=>'login', 'uses'=>'CustomAuthController@login']);
+
+Route::get('/suz_reg', ['as'=>'register', 'uses'=>'CustomAuthController@getRegister']);
+Route::post('/suz_reg', ['as'=>'register', 'uses'=>'CustomAuthController@postRegister']);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
