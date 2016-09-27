@@ -14,7 +14,7 @@
 Route::get('/', ['as'=>'home','uses'=>'PostsController@latest']);
 
 
-Route::resource('posts', 'PostsController');
+Route::resource('posts', 'PostsController', array('only'=>array('index', 'show')));
 
 Route::get('aboutnb', ['as'=>'about','uses'=>'PagesController@about']);
 Route::get('contact', ['as'=>'contact', 'uses'=>'PagesController@contact']);
@@ -32,3 +32,10 @@ Route::any('/register','PostsController@redirectRegister');
 |
 */
 Route::resource('/admin/posts', 'Admin\AdminPostsController');
+Route::get('/logout', function(){
+
+	Auth::logout();
+
+	return redirect()->route('home');
+})->name('logout');
+
