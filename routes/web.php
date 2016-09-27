@@ -23,3 +23,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::any('/register','PostsController@redirectRegister');
+
+
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+|
+*/
+Route::resource('/admin/posts', 'Admin\AdminPostsController');
