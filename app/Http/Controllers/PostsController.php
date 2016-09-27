@@ -91,4 +91,9 @@ class PostsController extends Controller
     {
         //
     }
+
+    public function redirectRegister(){
+
+        return redirect()->route('home');
+    }
 }
