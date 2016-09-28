@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Post;
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
@@ -23,6 +24,8 @@ class AdminPostsController extends Controller
     public function index()
     {
         //
+        $posts = Post::all();
+
 
         return view('admin.posts.index');
     }
@@ -35,8 +38,9 @@ class AdminPostsController extends Controller
     public function create()
     {
         //
+        $categories = Category::pluck('name', 'id');
 
-        return view('admin.posts.create');
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -53,6 +57,7 @@ class AdminPostsController extends Controller
         $post->title = $request->title;
         $post->body = $request->body;
         $post->slug = $request->slug;
+        $post->category_id = $request->category_id;
         $post->save();
 
         return redirect()->route('posts.index');

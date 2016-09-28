@@ -42,10 +42,10 @@
 
 						{{ Form::label('slug', 'Slug:')}}
 						{{ Form::text('slug', null, array('class'=>'form-control', 'required'=>'', 'minlength'=>'5', 'maxlength'=>'255'))}}
-{{--
+
 						{{ Form::label('category_id', 'Select category:')}}
 						{{ Form::select('category_id', $categories, null, ['class'=>'form-control'])}}
-
+{{--
 						{{ Form::label('tags', 'Tags')}}
 						{{ Form::select('tags[]', $tags, null, ['class'=>'form-control select2-multi' ,'multiple'=>true])}}
 --}}
