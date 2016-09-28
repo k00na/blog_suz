@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Tag;
 use App\Post;
 use App\Category;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\BaseAdminController;
 use App\Http\Requests;
 use App\Http\Requests\CreatePostRequest;
 
-class AdminPostsController extends Controller
+class AdminPostsController extends BaseAdminController
 {
 
-    public function __construct(){
-
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -39,8 +36,9 @@ class AdminPostsController extends Controller
     {
         //
         $categories = Category::pluck('name', 'id');
+        $tags = Tag::pluck('name', 'id');
 
-        return view('admin.posts.create', compact('categories'));
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**

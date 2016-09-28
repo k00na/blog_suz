@@ -1,6 +1,10 @@
 @extends('admin.admin_panel')
 @section('title', 'Create Tags')
 
+@section('additional_stylesheets')
+	{!! Html::style('css/parsley.css') !!}
+@endsection
+
 @section('content')
 
 	<div class="row">
@@ -14,8 +18,8 @@
 						
 						{{ Form::open(array('route'=>'tags.store','method'=>'POST', 'data-parsley-validate' => '')) }}
 
-						{{ Form::label('tag', 'Enter New Tag Name') }}
-						{{ Form::text('tag', null, array('class'=>'form-control', 'required'=>'')) }}
+						{{ Form::label('name', 'Enter New Tag Name') }}
+						{{ Form::text('name', null, array('class'=>'form-control', 'required'=>'')) }}
 
 						{{ Form::submit('Create Tag', array('class'=>'btn btn-primary form-btn-marg'))}}
 					
@@ -26,5 +30,9 @@
 			</div>
 		</div>
 	</div>
+
+@section('additional_scripts')
+	{!! Html::script('js/parsley.min.js') !!}
+@endsection
 
 @endsection

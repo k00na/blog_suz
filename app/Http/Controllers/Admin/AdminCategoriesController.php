@@ -4,17 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCategoryRequest;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\BaseAdminController;
 use App\Http\Requests;
 use App\Category;
 
-class AdminCategoriesController extends Controller
+class AdminCategoriesController extends BaseAdminController
 {
 
-    public function __construct(){
 
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *

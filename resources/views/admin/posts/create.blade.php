@@ -1,5 +1,6 @@
 @extends('admin.admin_panel')
 
+@section('title', 'New Post')
 @section('additional_stylesheets')
 	{!! Html::style('css/parsley.css') !!}
 	{!! Html::style('css/select2.min.css')!!}
@@ -45,10 +46,16 @@
 
 						{{ Form::label('category_id', 'Select category:')}}
 						{{ Form::select('category_id', $categories, null, ['class'=>'form-control'])}}
-{{--
+
 						{{ Form::label('tags', 'Tags')}}
-						{{ Form::select('tags[]', $tags, null, ['class'=>'form-control select2-multi' ,'multiple'=>true])}}
---}}
+						{{--<select class="form-control select2-multi" name="tags" multiple="multiple">
+							@foreach($tags as $tag)
+								<option value='{{$tag}}'>{{$tag}}</option>
+							@endforeach
+						</select>--}}
+
+						{{ Form::select('tags[]', $tags, null, ['class'=>'form-control select2-multi' ,'multiple'=>'multiple'])}}
+
 
 						{{ Form::label('featured_image', 'Upload Featured Image')}}
 						{{ Form::file('featured_image')}}
@@ -66,7 +73,11 @@
 </div>
 
 
-@section('additional_scripts')
+
+@endsection
+
+
+ @section('additional_scripts')
 	{!! Html::script('js/parsley.min.js') !!}
 	{!! Html::script('js/select2.min.js') !!}
 
@@ -74,7 +85,5 @@
 		$('.select2-multi').select2();
 	</script>
 
-
-@endsection
 
 @endsection

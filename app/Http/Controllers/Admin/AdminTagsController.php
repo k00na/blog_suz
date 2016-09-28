@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Tag;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateTagRequest;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\BaseAdminController;
 use App\Http\Requests;
 
-class AdminTagsController extends Controller
+class AdminTagsController extends BaseAdminController
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -43,12 +44,9 @@ class AdminTagsController extends Controller
     public function store(CreateTagRequest $request)
     {
         //
-        return "seos!";
         $tag = new Tag();
         $tag->name = $request->name;
         $tag->save();
-        dd($tag);
-
 
         return redirect()->route('tags.index');
     }
@@ -96,5 +94,6 @@ class AdminTagsController extends Controller
     public function destroy($id)
     {
         //
+        
     }
 }
