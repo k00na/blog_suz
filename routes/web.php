@@ -68,3 +68,12 @@ Route::resource('/admin/posts', 'Admin\AdminPostsController');
 */
 
 Route::resource('/admin/categories', 'Admin\AdminCategoriesController');
+
+/*
+|--------------------------------------------------------------------------
+| Admin Tags Routes
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::resource('/admin/tags', 'Admin\AdminTagsController');

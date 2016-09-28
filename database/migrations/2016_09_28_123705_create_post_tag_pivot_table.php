@@ -13,7 +13,7 @@ class CreatePostTagPivotTable extends Migration
      */
     public function up()
     {
-        Schema::table('post_tag', function (Blueprint $table) {
+        Schema::create('post_tag', function (Blueprint $table) {
             //
             $table->increments('id');
             $table->integer('post_id')->unsigned();
@@ -29,9 +29,7 @@ class CreatePostTagPivotTable extends Migration
      */
     public function down()
     {
-        Schema::table('post_tag', function (Blueprint $table) {
-            //
-            Schema::drop('post_tag');
-        });
+        Schema::dropIfExists('post_tag');
+        
     }
 }

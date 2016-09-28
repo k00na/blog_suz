@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin</title>
+    <title>SuzAdmin - @yield('title')</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
@@ -109,13 +109,13 @@
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Media<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Tags<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="panels-wells.html">All Media</a>
+                                <a href="{{route('tags.index')}}">All Tags</a>
                             </li>
                             <li>
-                                <a href="buttons.html">Create Media</a>
+                                <a href="{{route('tags.create')}}">Create Tag</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
