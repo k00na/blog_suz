@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\CreateCategoryRequest;
+use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Category;
 
-class VisitorPostsController extends Controller
+class AdminCategoriesController extends Controller
 {
 
+    public function __construct(){
 
-    public function latest(){
-
-        return view('posts.latest');
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -22,8 +23,7 @@ class VisitorPostsController extends Controller
     public function index()
     {
         //
-
-        return view('posts.index');
+        return view('admin.categories.index');
     }
 
     /**
@@ -34,6 +34,8 @@ class VisitorPostsController extends Controller
     public function create()
     {
         //
+
+        return view('admin.categories.create');
     }
 
     /**
@@ -42,9 +44,17 @@ class VisitorPostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateCategoryRequest $request)
     {
         //
+
+        $category = new Category();
+        $category->name = $request->name;
+        $category->save();
+
+        return redirect()->route('categories.index');
+
+
     }
 
     /**
@@ -90,10 +100,5 @@ class VisitorPostsController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function redirectRegister(){
-
-        return redirect()->route('home');
     }
 }

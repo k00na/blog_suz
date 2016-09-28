@@ -28,12 +28,13 @@ Route::get('/contact', ['as'=>'contact', 'uses'=>'PagesController@contact']);
 
 /*
 |--------------------------------------------------------------------------
-| Admin Routes
+| Admin Auth Routes
 |--------------------------------------------------------------------------
 |
 */
+
 Auth::routes();
-Route::resource('/admin/posts', 'Admin\AdminPostsController');
+
 Route::get('/logout', function(){
 
 	Auth::logout();
@@ -41,3 +42,29 @@ Route::get('/logout', function(){
 	return redirect()->route('home');
 })->name('logout');
 
+Route::get('/admin', function(){
+
+	if(Auth::check()){
+		return redirect()->route('posts.index');	
+	}
+
+	return redirect()->route('login');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Admin Posts Routes
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::resource('/admin/posts', 'Admin\AdminPostsController');
+
+/*
+|--------------------------------------------------------------------------
+| Admin Categories Routes
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::resource('/admin/categories', 'Admin\AdminCategoriesController');

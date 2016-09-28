@@ -14,7 +14,6 @@
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     @yield('additional_stylesheets')
 
 
@@ -97,13 +96,13 @@
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Categories<span class="fa arrow"></span></a>
+                        <a href=""><i class="fa fa-wrench fa-fw"></i> Categories<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="panels-wells.html">All Categories</a>
+                                <a href="{{route('categories.index')}}">All Categories</a>
                             </li>
                             <li>
-                                <a href="buttons.html">Create Category</a>
+                                <a href="{{route('categories.create')}}">Create Category</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
