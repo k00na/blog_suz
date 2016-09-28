@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Http\Requests\CreatePostRequest;
 
 class AdminPostsController extends Controller
 {
@@ -33,6 +35,8 @@ class AdminPostsController extends Controller
     public function create()
     {
         //
+
+        return view('admin.posts.create');
     }
 
     /**
@@ -41,9 +45,17 @@ class AdminPostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
         //
+
+        $post = new Post();
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->slug = $request->slug;
+        $post->save();
+
+        return redirect()->route('posts.index');
     }
 
     /**

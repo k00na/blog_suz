@@ -18,13 +18,12 @@
 |--------------------------------------------------------------------------
 |
 */
-Route::get('/', ['as'=>'home','uses'=>'PostsController@latest']);
-Route::post('/', ['as'=>'filter', 'uses'=>'PostsController@filter']);
+Route::get('/', ['as'=>'home','uses'=>'VisitorPostsController@latest']);
+Route::post('/', ['as'=>'filter', 'uses'=>'VisitorPostsController@filter']);
+Route::any('/register','VisitorPostsController@redirectRegister');
 
 Route::get('/about', ['as'=>'about','uses'=>'PagesController@about']);
 Route::get('/contact', ['as'=>'contact', 'uses'=>'PagesController@contact']);
-
-Route::any('/register','PostsController@redirectRegister');
 
 
 /*
