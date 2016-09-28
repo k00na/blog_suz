@@ -15,6 +15,10 @@ class Post extends Model
     	$this->belongsTo('App\Category');
     }
 
+    public function tags(){
+    	$this->belongsToMany('App\Tag');
+    }
+
 
 
 }
