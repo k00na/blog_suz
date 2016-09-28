@@ -11,17 +11,19 @@
 |
 */
 
+
+/*
+|--------------------------------------------------------------------------
+| Visitors Routes
+|--------------------------------------------------------------------------
+|
+*/
 Route::get('/', ['as'=>'home','uses'=>'PostsController@latest']);
+Route::post('/', ['as'=>'filter', 'uses'=>'PostsController@filter']);
 
+Route::get('/about', ['as'=>'about','uses'=>'PagesController@about']);
+Route::get('/contact', ['as'=>'contact', 'uses'=>'PagesController@contact']);
 
-Route::resource('posts', 'PostsController', array('only'=>array('index', 'show')));
-
-Route::get('aboutnb', ['as'=>'about','uses'=>'PagesController@about']);
-Route::get('contact', ['as'=>'contact', 'uses'=>'PagesController@contact']);
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
 Route::any('/register','PostsController@redirectRegister');
 
 
@@ -31,6 +33,7 @@ Route::any('/register','PostsController@redirectRegister');
 |--------------------------------------------------------------------------
 |
 */
+Auth::routes();
 Route::resource('/admin/posts', 'Admin\AdminPostsController');
 Route::get('/logout', function(){
 
