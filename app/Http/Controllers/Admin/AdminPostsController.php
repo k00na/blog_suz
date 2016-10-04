@@ -21,10 +21,10 @@ class AdminPostsController extends BaseAdminController
     public function index()
     {
         //
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
 
 
-        return view('admin.posts.index');
+        return view('admin.posts.index', compact('posts'));
     }
 
     /**
@@ -58,6 +58,8 @@ class AdminPostsController extends BaseAdminController
         $post->category_id = $request->category_id;
         $post->save();
 
+        $post->tags()->sync($request->tags, false);
+
         return redirect()->route('posts.index');
     }
 
@@ -70,6 +72,10 @@ class AdminPostsController extends BaseAdminController
     public function show($id)
     {
         //
+        $post = Post::findOrFail($id);
+
+
+        return view('admin.posts.show', compact('post'));
     }
 
     /**
@@ -81,6 +87,14 @@ class AdminPostsController extends BaseAdminController
     public function edit($id)
     {
         //
+        $post = Post::findOrFail($id);
+        $categories = Category::pluck('name', 'id');
+        $tags = Tag::pluck('name', 'id');
+        $postags = $post->tags->pluck('name', 'id')->all();
+
+        return view('admin.posts.edit', compact('post', 'categories', 'tags', 'postags'));
+
+
     }
 
     /**
@@ -93,6 +107,42 @@ class AdminPostsController extends BaseAdminController
     public function update(Request $request, $id)
     {
         //
+        $post = Post::findOrFail($id);
+
+        if($post->slug == $request->slug)
+        {
+            $this->validate($request, array(
+                'title' => 'required|max:255',
+                'body' => 'required',
+                'category_id' => 'required|integer'
+                ));
+        } else 
+        {
+            $this->validate($request, array(
+                'title' => 'required|max:255',
+                'body' => 'required',
+                'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
+                'category_id' => 'required|integer'
+                ));
+
+            $post->slug = $request->slug;
+
+        }
+
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->category_id = $request->category_id;
+
+        if(isset($request->tags))
+            $post->tags()->sync($request->tags); 
+        else
+            $post->tags()->sync(array());
+
+        $post->save();
+
+        //Session::flash('success', 'Post updated successfully');
+
+        return redirect()->route('posts.index', $post->id);
     }
 
     /**

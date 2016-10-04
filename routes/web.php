@@ -20,7 +20,6 @@
 */
 Route::get('/', ['as'=>'home','uses'=>'VisitorPostsController@latest']);
 Route::post('/', ['as'=>'filter', 'uses'=>'VisitorPostsController@filter']);
-Route::any('/register','VisitorPostsController@redirectRegister');
 
 Route::get('/about', ['as'=>'about','uses'=>'PagesController@about']);
 Route::get('/contact', ['as'=>'contact', 'uses'=>'PagesController@contact']);
@@ -77,3 +76,7 @@ Route::resource('/admin/categories', 'Admin\AdminCategoriesController');
 */
 
 Route::resource('/admin/tags', 'Admin\AdminTagsController');
+
+/// REDIRECT REGISTER URL
+
+Route::any('/register','VisitorPostsController@redirectRegister');

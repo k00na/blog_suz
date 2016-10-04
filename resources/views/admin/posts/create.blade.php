@@ -9,7 +9,11 @@
 	<script type="text/javascript">
 		tinymce.init({
 			selector: 'textarea',
-			plugins: 'link',
+			plugins: [
+      'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+      'save table contextmenu directionality emoticons template paste textcolor'
+    ],
 			codesample_languages: [
 		        {text: 'HTML/XML', value: 'markup'},
 		        {text: 'JavaScript', value: 'javascript'},
@@ -31,7 +35,7 @@
 
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
-		<h1>Create New Post</h1>
+		
 		<div class="panel panel-default">
 			<div class="panel-heading">Fill up the form</div>
 			<div class="panel-body">
@@ -54,7 +58,7 @@
 							@endforeach
 						</select>--}}
 
-						{{ Form::select('tags[]', $tags, null, ['class'=>'form-control select2-multi' ,'multiple'=>'multiple'])}}
+						{{ Form::select('tags[]', $tags, null, ['class'=>'form-control select2-multi' ,'multiple'=>true])}}
 
 
 						{{ Form::label('featured_image', 'Upload Featured Image')}}

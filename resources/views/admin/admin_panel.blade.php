@@ -14,6 +14,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
     @yield('additional_stylesheets')
 
 
@@ -216,7 +217,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
+                    <h1 class="page-header">@yield('title')</h1>
                     @yield('content')
                 </div>
                 <!-- /.col-lg-12 -->
