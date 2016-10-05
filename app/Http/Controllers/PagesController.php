@@ -11,6 +11,11 @@ class PagesController extends Controller
 {
     //
 
+    public function index(){
+
+        return view('pages.index');
+    }
+
     public function about(){
 
     	return view('pages.about');
@@ -21,9 +26,9 @@ class PagesController extends Controller
     	return view('pages.contact');
     }
 
-    public function contactSend($data){
+    public function contactSend(Request $request){
 
-        dd($data);
+        
     	$this->validate($request, array(
     			'name'=>'required',
     			'email'=>'required|email',
@@ -36,6 +41,7 @@ class PagesController extends Controller
     		'name'=>$request->name,
             'subject'=>$request->subject
     		);
+
 
     	Mail::send('emails.contact', $data, function($message) use ($data){
 

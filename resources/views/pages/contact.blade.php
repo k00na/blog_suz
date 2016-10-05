@@ -142,7 +142,31 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <form action="#" method="post" class="contactForm" id="contactForm">
+
+                                {{ Form::open(array('route'=>'contact.send', 'method'=>'POST', 'class'=>'contactForm'))}}
+
+                                <div class="col-lg-6">
+                                {{ Form::label('name', 'Ime:')}}
+                                {{ Form::text('name', null, array('class'=>'form-control required',  'maxlength'=>"255"))}}
+                                </div>
+
+                                <div class="col-lg-6">
+                                {{ Form::label('email', 'Email naslov:')}}
+                                {{ Form::email('email', null, array('class'=>'form-control', 'required'=>'', 'maxlength'=>"255")) }}
+                                </div>
+                                <div class="col-lg-12">
+                                {{ Form::label('subject', 'Zadeva:')}}
+                                {{ Form::text('subject', null, array('class'=>'form-control', 'required'=>'', 'maxlength'=>"255"))}}
+                                </div>
+                                <div class="col-lg-12">
+                                {{ Form::label('body', 'Vsebina:')}}
+                                {{ Form::textarea('body', null, array('class'=>'form-control', 'required'=>''))}}
+                                </div>
+                                {{ Form::submit('Pošlji sporočilo', array('class'=>'commentSubmit', 'style'=>'margin-top: 20px'))}}
+                                    
+                                {{ Form::close() }}
+                                {{--
+                                <form action="#" method="get" class="contactForm" id="contactForm">
                                     <div class="col-lg-6">
                                         <input type="text" placeholder="Ime*" id="con_name" name="con_name" class="required">
                                     </div>
@@ -160,6 +184,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </form>
+                                --}}
                             </div>
                         </div>
                     </div>

@@ -9,11 +9,6 @@ use App\Http\Requests;
 class VisitorPostsController extends Controller
 {
 
-
-    public function latest(){
-
-        return view('posts.latest');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +18,7 @@ class VisitorPostsController extends Controller
     {
         //
 
-        return view('posts.index');
+        return view('pages.index');
     }
 
     /**

@@ -18,7 +18,7 @@
 |--------------------------------------------------------------------------
 |
 */
-Route::get('/', ['as'=>'home','uses'=>'VisitorPostsController@latest']);
+Route::get('/', ['as'=>'home','uses'=>'VisitorPostsController@index']);
 Route::post('/', ['as'=>'filter', 'uses'=>'VisitorPostsController@filter']);
 
 Route::get('/about', ['as'=>'about','uses'=>'PagesController@about']);

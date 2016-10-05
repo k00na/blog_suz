@@ -95,17 +95,17 @@
             $("#con_submit").html('Processsing...');
             var con_name, con_lname, con_email, con_message, con_sub;
 
-            if ($("#con_name").length > 0) {
-                var con_name = $("#con_name").val();
+            if ($("#name").length > 0) {
+                var name = $("#name").val();
             }
-            if ($("#con_email").length > 0) {
-                var con_email = $("#con_email").val();
+            if ($("#email").length > 0) {
+                var email = $("#email").val();
             }
-            if ($("#con_message").length > 0) {
-                var con_message = $("#con_message").val();
+            if ($("#message").length > 0) {
+                var message = $("#body").val();
             }
-            if ($("#con_sub").length > 0) {
-                var con_sub = $("#con_sub").val();
+            if ($("#subject").length > 0) {
+                var subject = $("#subject").val();
             }
 
             var required = 0;
@@ -129,9 +129,9 @@
             if (required === 0)
             {
                 $.ajax({
-                    type: "POST",
+                    type: "GET",
                     url: 'contact/send',
-                    data: {con_name: con_name, con_email: con_email, con_message: con_message, con_sub: con_sub},
+                    data: {con_name: name, con_email: email, con_message: message, con_sub: subject},
                     success: function (data)
                     {
                         $("#con_submit").html('Done!');

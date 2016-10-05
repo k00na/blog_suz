@@ -1,31 +1,97 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
-    </div>
+<div class="leftMenu">
+                <div class="leftmenuHead">
+                    <div class="logoleft pull-left">
+                        <a href="#"><img src="images/logoleft.png" alt=""></a>
+                    </div>
+                    <a href="#" class="leftclose pull-right">x</a>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="leftmenuScroll">
+                    <nav class="leftmainnav">
+                        <ul>
+                            <li><a href="index.html">Domov</a></li>
+                            <li class="has-menu-items"><a href="#">Objave</a>
+                                <ul class="sub-menu">
+                                    <li><a href="blog_kategorija.html">Kategorije</a></li>
+                                    <li><a href="arhiv.html">Arhiv</a></li>
+                                </ul>
+                            </li>
+              <li><a href="about_me.html">O meni</a>
+                            </li>
+                            <li><a href="contact.html">Kontakt</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="socialleft">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                </div>
+            </div>
+            <!--Header Top Start -->
+            <section class="headerTop">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-xs-2">
+                            <div class="menuBar" id="leftTrigger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-xs-8 text-center">
+                            <div class="logo">
+                                <a href="index.html"><img src="images/logo.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-xs-2 text-right">
+                            <div class="search">
+                                <a href="#">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                                <form action="#" method="post" class="searchForm">
+                                    <input type="search" placeholder="Search...">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Header Top End -->
+            <!--Header Start-->
+            <header class="header">
+                <div class="container">
+                    <div class="headerIn">
+                        <div class="row">
+                            <div class="col-lg-8 col-sm-9 col-xs-12 pull-left noPaddingRight">
+                                <nav class="mainNav">
+                                    <div class="menuBar hidden-lg hidden-md">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <ul>
+                                        <li class="has-menu-items"><a href="index.html">Domov</a></li>
+                                        <li class="has-menu-items"><a href="javascript:void('0')">Objave</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog_kategorija.html">Kategorije</a></li>
+                                                <li><a href="arhiv.html">Arhiv</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-menu-items"><a href="o_meni.html">O meni</a>
+                                        </li>
+                    <li class="has-menu-items"><a href="kontakt.html">Kontakt</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-lg-4 col-sm-3 col-xs-8 pull-right text-right">
+                                <div class="socialHeader">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="{{ Request::is('/') ? "active" : ""}}"><a href="{{ route('home')}}">Domov <span class="sr-only">(current)</span></a></li>
-        <li><a href="{{ route('posts.index')}}">Vsi Članki</a></li>
-        <li><a href="{{ route('about')}}">O meni</a></li>
-        <li><a href="{{ route('contact')}}">Kontakt</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        @if(Auth::check())
-        <li><a href="{{route('logout')}}">Logout</a></li>
-        <li><a href="{{url('admin/posts')}}">Admin Panel</a></li>
-        @endif
-        
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+            <!--Header End-->
