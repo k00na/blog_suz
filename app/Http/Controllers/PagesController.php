@@ -32,14 +32,15 @@ class PagesController extends Controller
     	$data = array(
     		'email'=>$request->email,
     		'body'=>$request->body,
-    		'name'=>$request->name
+    		'name'=>$request->name,
+            'subject'=>$request->subject
     		);
 
     	Mail::send('emails.contact', $data, function($message) use ($data){
 
     		$message->from($data['email'], $data['name']);
 
-    		$message->to('kunaigor44@gmail.com', 'Default Topic');
+    		$message->to('kunaigor44@gmail.com', $data['subject']);
 
     		$message->subject($data['body']);
 

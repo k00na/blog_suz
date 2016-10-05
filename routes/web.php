@@ -25,6 +25,7 @@ Route::get('/about', ['as'=>'about','uses'=>'PagesController@about']);
 Route::get('/contact', ['as'=>'contact', 'uses'=>'PagesController@contact']);
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Admin Auth Routes
