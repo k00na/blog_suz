@@ -7,40 +7,22 @@
                 <div class="col-lg-8 col-sm-7">
                     <div class="row">
                         <div class="col-lg-12 text-center">
+
                             <div class="slider">
-                                <div class="singleSlide">
-                                    <img src="images/slider/1.jpg" alt="">
-                                    <div class="silderCont">
-                                        <h1>Kaj je Lorem Ipsum?</h1>
-                                        <div class="metaCont">
-                                            <a href="#"><i class="fa fa-user"></i>TavillaThemes</a>                         
-                                            <a href="#"> <i class="fa fa-clock-o"></i>18 March 2016</a>
-                                            <a href="#"><i class="fa fa-comments"></i>6 Comments</a>
+
+                                @foreach($posts as $post)
+                                    <div class="singleSlide">
+                                        <img src="{{ asset('images/' . $post->image) }}" alt="">
+                                        <div class="silderCont">
+                                            <h1>{{$post->title}}</h1>
+                                            <div class="metaCont">
+                                                <a href="#"><i class="fa fa-user"></i>{{$post->category->name}}</a>                         
+                                                <a href="#"> <i class="fa fa-clock-o"></i>{{$post->dateOfCreation}}</a>
+                                                {{--<a href="#"><i class="fa fa-comments"></i>6 Comments</a>--}}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="singleSlide">
-                                    <img src="images/slider/2.jpg" alt="">
-                                    <div class="silderCont">
-                                        <h1>Kaj je Lorem Ipsum-2?</h1>
-                                        <div class="metaCont">
-                                            <a href="#"><i class="fa fa-user"></i>TavillaThemes</a>                         
-                                            <a href="#"> <i class="fa fa-clock-o"></i>18 March 2016</a>
-                                            <a href="#"><i class="fa fa-comments"></i>6 Comments</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="singleSlide">
-                                    <img src="images/slider/3.jpg" alt="">
-                                    <div class="silderCont">
-                                        <h1>Kaj je Lorem Ipsum-3?</h1>
-                                        <div class="metaCont">
-                                            <a href="#"><i class="fa fa-user"></i>TavillaThemes</a>                         
-                                            <a href="#"> <i class="fa fa-clock-o"></i>18 March 2016</a>
-                                            <a href="#"><i class="fa fa-comments"></i>6 Comments</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

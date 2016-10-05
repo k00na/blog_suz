@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Image;
 use App\Tag;
 use App\Post;
 use App\Category;

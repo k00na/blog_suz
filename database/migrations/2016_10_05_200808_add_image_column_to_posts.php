@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangePostBodyColumnToText extends Migration
+class AddImageColumnToPosts extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class ChangePostBodyColumnToText extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             //
-            $table->text('body')->change();
+            $table->string('image')->nullable()->after('slug');
         });
     }
 
@@ -28,8 +28,7 @@ class ChangePostBodyColumnToText extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             //
-
-            $table->dropColumn('body');
+            $table->dropColumn('image');
         });
     }
 }
