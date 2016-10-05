@@ -5,7 +5,9 @@
 	{!! Html::style('css/parsley.css') !!}
 	{!! Html::style('css/select2.min.css')!!}
 	<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+	<script src="//cdn.ckeditor.com/4.5.11/full/ckeditor.js"></script> 
 
+{{--
 	<script type="text/javascript">
 		tinymce.init({
 			selector: 'textarea',
@@ -29,6 +31,7 @@
 
 		});
 	</script>
+--}}
 @endsection
 
 @section('content')
@@ -40,8 +43,9 @@
 			<div class="panel-heading">Fill up the form</div>
 			<div class="panel-body">
 				<div class="form-group">
-
+					
 					{!! Form::open(array('route' => 'posts.store', 'data-parsley-validate' => '', 'files' => true)) !!}
+					
 						{{ Form::label('title', 'Title:')}}
 						{{ Form::text('title', null, array('class'=>'form-control', 'required' => '', 'maxlength'=>"255"))}}
 
@@ -51,26 +55,21 @@
 						{{ Form::label('category_id', 'Select category:')}}
 						{{ Form::select('category_id', $categories, null, ['class'=>'form-control'])}}
 
-						{{ Form::label('tags', 'Tags')}}
-						{{--<select class="form-control select2-multi" name="tags" multiple="multiple">
-							@foreach($tags as $tag)
-								<option value='{{$tag}}'>{{$tag}}</option>
-							@endforeach
-						</select>--}}
-
+						{{ Form::label('tags', 'Tags')}}				
 						{{ Form::select('tags[]', $tags, null, ['class'=>'form-control select2-multi' ,'multiple'=>true])}}
 
-
+						{{ Form::label('body', 'Post body:')}}
+						{{ Form::textarea('body', null, array('class'=>'form-control', 'rows'=>'10', 'cols'=>'80', 'id'=>'body'))}}
+								
 						{{ Form::label('featured_image', 'Upload Featured Image')}}
 						{{ Form::file('featured_image')}}
-						
-						{{ Form::label('body', 'Post body:')}}
-						{{ Form::textarea('body', null, array('class'=>'form-control')) }}
 
 						{{ Form::submit('Create Post', array('class'=>'btn btn-success btn-lg btn-block', 'style'=>'margin-top: 20px'))}}
 
 					{!! Form::close() !!}
+					
 				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -88,6 +87,13 @@
 	<script type="text/javascript">
 		$('.select2-multi').select2();
 	</script>
+
+	<script>
+        CKEDITOR.replace( 'body' );
+    </script>
+
+	 
+	
 
 
 @endsection

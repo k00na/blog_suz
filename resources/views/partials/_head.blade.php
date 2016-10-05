@@ -8,4 +8,5 @@
 	@include('partials._styles')
 
 	@yield('additional_stylesheets')
+	<script src="ckeditor/ckeditor.js"></script>
 </head>
