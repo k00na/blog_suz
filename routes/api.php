@@ -17,4 +17,4 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::post('/contact/send', ['as'=>'contact.send', 'uses'=>'PagesController@contactSend']);
+

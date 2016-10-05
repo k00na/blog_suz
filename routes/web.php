@@ -81,3 +81,10 @@ Route::resource('/admin/tags', 'Admin\AdminTagsController');
 /// REDIRECT REGISTER URL
 
 Route::any('/register','VisitorPostsController@redirectRegister');
+
+/*
+*
+*/
+
+Route::post('contact/send', ['as'=>'contact.send', 'uses'=>'PagesController@contactSend']);
+

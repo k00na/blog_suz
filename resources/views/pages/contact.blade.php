@@ -142,18 +142,18 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <form action="{{route('contact.send')}}" method="post" class="contactForm" id="contactForm">
+                                <form action="#" method="post" class="contactForm" id="contactForm">
                                     <div class="col-lg-6">
                                         <input type="text" placeholder="Ime*" id="con_name" name="con_name" class="required">
                                     </div>
                                     <div class="col-lg-6">
-                                        <input type="email" placeholder="Email naslov*" id="email" name="email" class="required">
+                                        <input type="email" placeholder="Email naslov*" id="con_email" name="con_email" class="required">
                                     </div>
                                     <div class="col-lg-12">
-                                        <input type="text" placeholder="Tema" id="subject" name="subject" class="required">
+                                        <input type="text" placeholder="Tema" id="con_sub" class="required">
                                     </div>
                                     <div class="col-lg-12">
-                                        <textarea placeholder="Vprašanje" id="body" name="body" class="required"></textarea>
+                                        <textarea placeholder="Vprašanje" id="con_message" name="con_message" class="required"></textarea>
                                     </div>
                                     <div class="col-lg-12">
                                         <button type="submit" class="commentSubmit" id="con_submit">Pošlji sporočilo</button>

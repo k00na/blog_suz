@@ -21,8 +21,9 @@ class PagesController extends Controller
     	return view('pages.contact');
     }
 
-    public function contactSend(Request $request){
+    public function contactSend($data){
 
+        dd($data);
     	$this->validate($request, array(
     			'name'=>'required',
     			'email'=>'required|email',

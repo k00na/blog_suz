@@ -130,7 +130,7 @@
             {
                 $.ajax({
                     type: "POST",
-                    url: 'php/mail.php',
+                    url: 'contact/send',
                     data: {con_name: con_name, con_email: con_email, con_message: con_message, con_sub: con_sub},
                     success: function (data)
                     {
