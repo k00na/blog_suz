@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Mail;
+use App\Post;
 
 class PagesController extends Controller
 {
@@ -13,7 +14,15 @@ class PagesController extends Controller
 
     public function index(){
 
-        return view('pages.index');
+        
+        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
+
+        return view('pages.index', compact('posts'));
+    }
+
+    public function posts(){
+
+        return view('pages.posts');
     }
 
     public function about(){
@@ -47,9 +56,10 @@ class PagesController extends Controller
 
     		$message->from($data['email'], $data['name']);
 
-    		$message->to('kunaigor44@gmail.com', $data['subject']);
+    		$message->to('kunaigor44@gmail.com');
+            
 
-    		$message->subject($data['body']);
+    		$message->subject($data['subject']);
 
     	});
 

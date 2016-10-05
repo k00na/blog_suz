@@ -1,8 +1,10 @@
-<h3>You've received a new message from the contact form</h3>
+<h3>Novo kontaktno sporočilo</h3>
 
-<h5>User name: {{$name}}</h5>
+<h4>Ime: </h4> {{$name}}
+<h4>Email: </h4> {{$email}} 
+<h4>Zadeva: </h4> {{$subject}}
 
-<br>
 <hr>
-
+<h4>Vsebina: </h4>
+<br>
 {{ $body}}

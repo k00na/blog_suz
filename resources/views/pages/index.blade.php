@@ -175,6 +175,8 @@
             </div>
         </div>
     </section>
+
+    {{--
     <section class="paginations">
         <div class="container">
             <div class="row">
@@ -187,11 +189,31 @@
                         <span class="dottedPagi">...</span>
                         <a href="#">12</a>
                         <a href="#" class="next"><i class="fa fa-long-arrow-right"></i></a>
-                        <div class="clearfix"></div>
+                        
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+    --}}
+
+    <section class="paginations">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="paginationIn">
+                        <div class="text-center">
+                            {!! $posts->links() !!}
+
+                            <p>Number of all posts: {!! $posts->total()!!}</p>
+                            <div class="clearfix"></div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
     </section>
 
  @endsection

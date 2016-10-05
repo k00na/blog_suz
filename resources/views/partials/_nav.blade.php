@@ -9,16 +9,16 @@
                 <div class="leftmenuScroll">
                     <nav class="leftmainnav">
                         <ul>
-                            <li><a href="index.html">Domov</a></li>
-                            <li class="has-menu-items"><a href="#">Objave</a>
+                            <li><a href="{{route('home')}}">Domov</a></li>
+                            <li class="has-menu-items"><a href="{{route('posts')}}">Objave</a>
                                 <ul class="sub-menu">
                                     <li><a href="blog_kategorija.html">Kategorije</a></li>
                                     <li><a href="arhiv.html">Arhiv</a></li>
                                 </ul>
                             </li>
-              <li><a href="about_me.html">O meni</a>
+                            <li><a href="{{route('about')}}">O meni</a>
                             </li>
-                            <li><a href="contact.html">Kontakt</a>
+                            <li><a href="{{route('contact')}}">Kontakt</a>
                             </li>
                         </ul>
                     </nav>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="col-lg-4 col-xs-8 text-center">
                             <div class="logo">
-                                <a href="index.html"><img src="images/logo.png" alt=""></a>
+                                <a href="{{route('home')}}"><img src="images/logo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-xs-2 text-right">
@@ -70,16 +70,16 @@
                                         <span></span>
                                     </div>
                                     <ul>
-                                        <li class="has-menu-items"><a href="index.html">Domov</a></li>
-                                        <li class="has-menu-items"><a href="javascript:void('0')">Objave</a>
+                                        <li class="has-menu-items"><a href="{{route('home')}}">Domov</a></li>
+                                        <li class="has-menu-items"><a href="{{route('posts')}}">Objave</a>
                                             <ul class="sub-menu">
                                                 <li><a href="blog_kategorija.html">Kategorije</a></li>
                                                 <li><a href="arhiv.html">Arhiv</a></li>
                                             </ul>
                                         </li>
-                                        <li class="has-menu-items"><a href="o_meni.html">O meni</a>
+                                        <li class="has-menu-items"><a href="{{route('about')}}">O meni</a>
                                         </li>
-                    <li class="has-menu-items"><a href="kontakt.html">Kontakt</a>
+                    <li class="has-menu-items"><a href="{{route('contact')}}">Kontakt</a>
                                         </li>
                                     </ul>
                                 </nav>
