@@ -17,7 +17,7 @@
                                             <h1>{{$post->title}}</h1>
                                             <div class="metaCont">
                                                 <a href="#"><i class="fa fa-user"></i>{{$post->category->name}}</a>                         
-                                                <a href="#"> <i class="fa fa-clock-o"></i>{{$post->dateOfCreation}}</a>
+                                                <a href="#"> <i class="fa fa-clock-o"></i>{{ date('F d, Y', strtotime($post->created_at)) }}</a>
                                                 {{--<a href="#"><i class="fa fa-comments"></i>6 Comments</a>--}}
                                             </div>
                                         </div>
