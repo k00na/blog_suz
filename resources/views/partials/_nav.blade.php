@@ -87,7 +87,12 @@
                             <div class="col-lg-4 col-sm-3 col-xs-8 pull-right text-right">
                                 <div class="socialHeader">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
+                                    @if(Auth::check())
+                                        <a href="{{route('logout')}}"><i class="fa fa-sign-out"></i></a>
+                                    @endif
                                 </div>
+
+                                
                             </div>
                         </div>
                     </div>

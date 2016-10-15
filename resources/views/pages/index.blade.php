@@ -32,17 +32,23 @@
                         @foreach($posts as $post)
                             <div class="col-lg-6 col-sm-12">
                                 <div class="singleBlog">
-                                    <div class="blogImg">
-                                        <img src="{{ asset('images/' . $post->image) }}" alt="">
-                                    </div>
+                                    @if($post->image)
+                                        <div class="blogImg">
+                                            <img src="{{ asset('images/' . $post->image) }}" alt="">
+                                        </div>
+                                    @endif
                                     <div class="blogDec">
                                         <h2 class="blogtitle">
                                             <a href="{{route('show_post', $post->slug)}}">{{$post->title}}</a>
                                         </h2>
-                                        <p>{!! substr(strip_tags($post->body), 0, 300) !!} {{strlen(strip_tags($post->body)) > 200 ? "..." : ""}}</p>
+                                        <p class="long-ass-words">{!! substr(strip_tags($post->body), 0, 300) !!} {{strlen(strip_tags($post->body)) > 200 ? "..." : ""}}</p>
                                         <div class="blogMeta">
-                                            <a href="#"><i class="fa fa-user"></i>{{$post->category->name}}</a>                         
-                                            <a href="#"> <i class="fa fa-clock-o"></i>{{ date('F d, Y', strtotime($post->created_at)) }}</a>
+                                            <a href=""><i class="fa fa-user"></i>{{$post->category->name}}</a>                         
+                                            <a href=""> <i class="fa fa-clock-o"></i>{{ date('F d, Y', strtotime($post->created_at)) }}</a>
+                                            @if(Auth::check())
+                                                <a href="{{route('posts.edit', $post->id)}}" class="fa fa-edit"><span>Edit Post</span></a>
+                                            @endif
+                                            
                                             
                                         </div>
                                     </div>

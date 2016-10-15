@@ -17,3 +17,7 @@
  .form-btn-marg{
  	margin-top: 15px;
  }
+
+ .long-ass-words{
+ 	word-wrap: break-word;
+ }

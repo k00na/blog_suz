@@ -70,7 +70,8 @@ class AdminPostsController extends BaseAdminController
 
         $post->save();
 
-        $post->tags()->sync($request->tags, false);
+        if($request->tags)
+            $post->tags()->sync($request->tags, false);
 
         return redirect()->route('posts.index');
     }

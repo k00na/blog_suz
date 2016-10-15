@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="{{url("css/preset.css")}}"/>
 <link rel="stylesheet" type="text/css" href="{{url("css/jquery.mCustomScrollbar.css")}}"/>
 <link rel="stylesheet" type="text/css" href="{{url("css/style.css")}}"/>
+<link rel="stylesheet" type="text/css" href="{{url("css/app.css")}}"/>
 <link rel="stylesheet" type="text/css" href="{{url("css/responsive.css")}}"/>
 <!-- End Include All CSS -->
 
