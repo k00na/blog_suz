@@ -26,79 +26,30 @@
                             </div>
                         </div>
                     </div>
+
+                    {{-- POSTS --}}
                     <div class="row">
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="singleBlog">
-                                <div class="blogImg">
-                                    <img src="images/blog/1.jpg" alt="">
-                                </div>
-                                <div class="blogDec">
-                                    <h2 class="blogtitle">
-                                        <a href="novica_1.html">Drops of rain could be heard hitting the pane which made</a>
-                                    </h2>
-                                    <p>If I didn't have my parents to think about I'd have given in my notice a long time ago. He'd fall right off his desk! </p>
-                                    <div class="blogMeta">
-                                        <a href="#"><i class="fa fa-user"></i>TavillaThemes</a>                         
-                                        <a href="#"> <i class="fa fa-clock-o"></i>18 March 2016</a>
-                                        <a href="#"><i class="fa fa-comments"></i>6 Comments</a>
+                        @foreach($posts as $post)
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="singleBlog">
+                                    <div class="blogImg">
+                                        <img src="{{ asset('images/' . $post->image) }}" alt="">
+                                    </div>
+                                    <div class="blogDec">
+                                        <h2 class="blogtitle">
+                                            <a href="{{route('show_post', $post->slug)}}">{{$post->title}}</a>
+                                        </h2>
+                                        <p>{!! substr(strip_tags($post->body), 0, 300) !!} {{strlen(strip_tags($post->body)) > 200 ? "..." : ""}}</p>
+                                        <div class="blogMeta">
+                                            <a href="#"><i class="fa fa-user"></i>{{$post->category->name}}</a>                         
+                                            <a href="#"> <i class="fa fa-clock-o"></i>{{ date('F d, Y', strtotime($post->created_at)) }}</a>
+                                            
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="singleBlog">
-                                <div class="blogImg">
-                                    <img src="images/blog/2.jpg" alt="">
-                                </div>
-                                <div class="blogDec">
-                                    <h2 class="blogtitle">
-                                        <a href="novica_2.html">It was half past six and the hands were quietly moving forwards</a>
-                                    </h2>
-                                    <p>If I didn't have my parents to think about I'd have given in my notice a long time ago. He'd fall right off his desk! </p>
-                                    <div class="blogMeta">
-                                        <a href="#"><i class="fa fa-user"></i>TavillaThemes</a>                         
-                                        <a href="#"> <i class="fa fa-clock-o"></i>18 March 2016</a>
-                                        <a href="#"><i class="fa fa-comments"></i>6 Comments</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="singleBlog">
-                                <div class="blogImg">
-                                    <img src="images/blog/3.jpg" alt="">
-                                </div>
-                                <div class="blogDec">
-                                    <h2 class="blogtitle">
-                                        <a href="novica_3.html">It was half past six and the hands were quietly moving forwards</a>
-                                    </h2>
-                                    <p>If I didn't have my parents to think about I'd have given in my notice a long time ago. He'd fall right off his desk! </p>
-                                    <div class="blogMeta">
-                                        <a href="#"><i class="fa fa-user"></i>TavillaThemes</a>                         
-                                        <a href="#"> <i class="fa fa-clock-o"></i>18 March 2016</a>
-                                        <a href="#"><i class="fa fa-comments"></i>6 Comments</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="singleBlog">
-                                <div class="blogImg">
-                                    <img src="images/blog/4.jpg" alt="">
-                                </div>
-                                <div class="blogDec">
-                                    <h2 class="blogtitle">
-                                        <a href="novica_4.html">Doing business like this takes much more effort than doing your own </a>
-                                    </h2>
-                                    <p>If I didn't have my parents to think about I'd have given in my notice a long time ago. He'd fall right off his desk! </p>
-                                    <div class="blogMeta">
-                                        <a href="#"><i class="fa fa-user"></i>TavillaThemes</a>                         
-                                        <a href="#"> <i class="fa fa-clock-o"></i>18 March 2016</a>
-                                        <a href="#"><i class="fa fa-comments"></i>6 Comments</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-5">

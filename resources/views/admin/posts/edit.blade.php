@@ -45,7 +45,7 @@
 
 			<div class="panel-body">
 				<div class="form-group">
-				{!! Form::model($post, array('route'=>array('posts.update', $post->id), 'method'=>'PUT')) !!}
+				{!! Form::model($post, array('route'=>array('posts.update', $post->id), 'method'=>'PUT', 'files' => true)) !!}
 					{{ Form::label('title', 'Title:')}}
 					{{ Form::text('title', null, array('class'=>'form-control input-lg'))}}
 
@@ -60,6 +60,9 @@
 
 					{{ Form::label('body', 'Post body:', array('class'=>'form-spacing-top'))}}
 					{{ Form::textarea('body', null, array('class'=>'form-control'))}}
+
+					{{ Form::label('featured_image', 'Upload Featured Image')}}
+					{{ Form::file('featured_image')}}
 
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">

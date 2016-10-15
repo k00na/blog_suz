@@ -22,7 +22,7 @@ class AdminPostsController extends BaseAdminController
     public function index()
     {
         //
-        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(6);
 
 
         return view('admin.posts.index', compact('posts'));
@@ -63,7 +63,7 @@ class AdminPostsController extends BaseAdminController
             $image = $request->file('featured_image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/'. $filename);
-            Image::make($image)->resize(800, 400)->save($location);
+            Image::make($image)->save($location);
 
             $post->image = $filename;
         }
@@ -139,6 +139,15 @@ class AdminPostsController extends BaseAdminController
 
             $post->slug = $request->slug;
 
+        }
+
+        if($request->hasFile('featured_image')){
+            $image = $request->file('featured_image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/'. $filename);
+            Image::make($image)->save($location);
+
+            $post->image = $filename;
         }
 
         $post->title = $request->title;

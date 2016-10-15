@@ -6,11 +6,10 @@
 
 
 
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
-<script type="text/javascript" src="js/owl.carousel.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js"></script>
-<script type="text/javascript" src="js/gmaps.js"></script>
-<script type="text/javascript" src="js/jquery.mCustomScrollbar.js"></script>
-<script type="text/javascript" src="js/theme.js"></script>
+<script type="text/javascript" src="{{url("js/jquery.js")}}"></script>
+<script type="text/javascript" src="{{url("js/bootstrap.js")}}"></script>
+<script type="text/javascript" src="{{url("js/owl.carousel.js")}}"></script>
+<script type="text/javascript" src="{{url("js/gmaps.js")}}"></script>
+<script type="text/javascript" src="{{url("js/jquery.mCustomScrollbar.js")}}"></script>
+<script type="text/javascript" src="{{url("js/theme.js")}}"></script>
 

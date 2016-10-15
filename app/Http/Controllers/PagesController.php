@@ -15,7 +15,7 @@ class PagesController extends Controller
     public function index(){
 
         
-        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(6);
 
         return view('pages.index', compact('posts'));
     }
@@ -64,5 +64,15 @@ class PagesController extends Controller
     	});
 
     	return redirect()->route('home');
+    }
+
+    public function showPost($slug){
+
+        //$post = Post::findOrFail($slug);
+
+        $post = Post::where('slug', $slug)->first();
+
+
+        return view('pages.show_post', compact('post'));
     }
 }

@@ -1,13 +1,13 @@
 
 <!-- Include All CSS -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
-<link rel="stylesheet" type="text/css" href="css/owl.carousel.css"/>
-<link rel="stylesheet" type="text/css" href="css/owl.theme.css"/>
-<link rel="stylesheet" type="text/css" href="css/preset.css"/>
-<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css"/>
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="css/responsive.css"/>
+<link rel="stylesheet" type="text/css" href="{{url("css/bootstrap.css")}}"/>
+<link rel="stylesheet" type="text/css" href="{{url("css/font-awesome.min.css")}}"/>
+<link rel="stylesheet" type="text/css" href="{{url("css/owl.carousel.css")}}"/>
+<link rel="stylesheet" type="text/css" href="{{url("css/owl.theme.css")}}"/>
+<link rel="stylesheet" type="text/css" href="{{url("css/preset.css")}}"/>
+<link rel="stylesheet" type="text/css" href="{{url("css/jquery.mCustomScrollbar.css")}}"/>
+<link rel="stylesheet" type="text/css" href="{{url("css/style.css")}}"/>
+<link rel="stylesheet" type="text/css" href="{{url("css/responsive.css")}}"/>
 <!-- End Include All CSS -->
 
 

@@ -24,6 +24,8 @@ Route::get('/objave', ['as'=>'posts', 'uses'=>'PagesController@posts']);
 Route::get('/about', ['as'=>'about','uses'=>'PagesController@about']);
 Route::get('/contact', ['as'=>'contact', 'uses'=>'PagesController@contact']);
 
+Route::get('/post/{slug}', ['as'=>'show_post', 'uses'=>'PagesController@showPost']);
+
 
 
 /*
